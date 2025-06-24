@@ -1,0 +1,19 @@
+name: 
+  Test Project
+on: 
+  push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code #estos jobs lo ejecutan servidores que NO tienen el código. Toca descargarlo
+        uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v3 #no haría falta, el runner viene con la versión 16 ya. Mirar docu para ver
+        #que trae cada runner
+        with: 
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci #Instala exactamente las versiones de dependencias listadas en package-lock.json
+      - name: Run tests
+        run: npm test
