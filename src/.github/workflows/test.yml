@@ -13,7 +13,7 @@ jobs:
         #que trae cada runner
         with: 
           node-version: 18
-      - name: Install dependencies
+      - name: Install dependencies__
         run: npm ci #Instala exactamente las versiones de dependencias listadas en package-lock.json
       - name: Run tests
         run: npm test
