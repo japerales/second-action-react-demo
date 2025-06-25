@@ -16,6 +16,7 @@ jobs:
       - name: Run tests
         run: npm test
   deploy: #yo elijo el nombre
+    needs: test #este job necesita que se termine el job test previamente. Si no se ejecutan a la vez
     runs-on: ubuntu-latest
     steps:
       - name: Get code #estos jobs lo ejecutan servidores que NO tienen el código. Toca descargarlo
